@@ -1,0 +1,52 @@
+body{
+
+    background:#f5f7fb;
+
+    font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+}
+
+.card{
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.card-title{
+
+    color:#0e6fb8;
+
+    font-weight:700;
+
+}
+
+.card-text{
+
+    line-height:1.8;
+
+    color:#444;
+
+}
+
+.badge{
+
+    padding:10px 15px;
+
+    margin-right:10px;
+
+    border-radius:50px;
+
+}
+
+.list-group-item{
+
+    border:none;
+
+    padding:15px 0;
+
+}
