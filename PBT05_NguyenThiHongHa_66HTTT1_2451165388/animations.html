@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Animations & Transitions</title>
+
+    <link rel="stylesheet" href="animations.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>CSS Transitions & Animations</h1>
+    </header>
+
+    <section class="spinner-section fade-in">
+        <h2>1. Loading Spinner</h2>
+
+        <div class="spinner"></div>
+    </section>
+
+    <section class="products fade-in">
+
+        <h2>2. Product Cards Hover</h2>
+
+        <div class="product-grid">
+
+            <div class="card">
+
+                <div class="image-wrapper">
+                    <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTnYdcWXaWrxJBnKBVjuYX4s5enBr0BlpEiNIilwvTln5_xPd3-j4cz6aOERWV7y_LgNtky1910B_FP2GtE5RVdtjUIBgS_ExrwCxZiQ8vwp0Nfjd-bfKzZIjbwCeQDC2USQtCzLw&usqp=CAc" alt="Product">
+                </div>
+
+                <div class="card-content">
+                    <h3>Gaming Laptop</h3>
+
+                    <p>
+                        Laptop hiệu năng cao dành cho học tập và gaming.
+                    </p>
+
+                    <button class="buy-btn">
+                        Mua ngay
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="image-wrapper">
+                    <img src="data:image/jpeg;base64,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" alt="Product">
+                </div>
+
+                <div class="card-content">
+                    <h3>Wireless Headphone</h3>
+
+                    <p>
+                        Tai nghe không dây chất lượng âm thanh cao.
+                    </p>
+
+                    <button class="buy-btn">
+                        Mua ngay
+                    </button>
+                </div>
+
+            </div>
+
+            <div class="card">
+
+                <div class="image-wrapper">
+                    <img src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSPYQ1RY4uRmoO78r1qOA-53N7SccTOlOt-eoCHxmdtgisOLT8pIEQD8oirf69UPNpZPhEaeW5G37vJKyLyho0374eMBWXhlkh3niIBLJSAJWjgTW2Vlzc_-RtuSRI0hhe37u9lTaU&usqp=CAc" alt="Product">
+                </div>
+
+                <div class="card-content">
+                    <h3>Smart Watch</h3>
+
+                    <p>
+                        Đồng hồ thông minh hỗ trợ theo dõi sức khỏe.
+                    </p>
+
+                    <button class="buy-btn">
+                        Mua ngay
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="fade-demo fade-in">
+
+        <h2>3. Fade In Animation</h2>
+
+        <div class="fade-box">
+            Nội dung xuất hiện với hiệu ứng fade-in
+        </div>
+
+    </section>
+
+</body>
+</html>

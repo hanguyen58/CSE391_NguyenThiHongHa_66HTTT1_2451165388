@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Positioning Playground</title>
+
+    <link rel="stylesheet" href="positioning.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">MyShop</div>
+
+        <nav class="nav">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <aside class="sidebar">
+            <h2>Danh mục</h2>
+
+            <ul>
+                <li>Điện thoại</li>
+                <li>Laptop</li>
+                <li>Tai nghe</li>
+                <li>Phụ kiện</li>
+                <li>Đồng hồ</li>
+            </ul>
+        </aside>
+
+        <main class="content">
+
+            <h1>Danh sách sản phẩm</h1>
+
+            <div class="products">
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="data:image/jpeg;base64,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"
+                        alt=""
+                    >
+
+                    <h3>IPhone 15</h3>
+
+                    <p>Giá: 25.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcSNbfXipNl23nHixMtTTnksfcZvGzvJVZQJAwbDFq72eCaqWxBuU8KPz3HtUD1rWxkT5rint9ozHEdAw22Oaso7d237DmcDbDqQsUMNWihMKWnSN-S08g0gaGWXH8Gp8N_kvqU5UIB8HGA&usqp=CAc"
+                        alt=""
+                    >
+
+                    <h3>Macbook Pro</h3>
+
+                    <p>Giá: 40.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcScGNAJ59_ZfirAgpMpHrtPI5aGDgBZgs0JlTpSid1o-5owwm8dYb5ISkp0ZkPeM1eKjZ20XZwP-UEYfzxGxPeZnQ8_vDBralW-CE336ifsLfCytwLVKRgsY0TVNiX0jwkyoZnTxMc&usqp=CAc"
+                        alt=""
+                    >
+
+                    <h3>AirPods</h3>
+
+                    <p>Giá: 5.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="data:image/webp;base64,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"
+                        alt=""
+                    >
+
+                    <h3>Apple Watch</h3>
+
+                    <p>Giá: 10.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQNjQxR7nctpATcla-Qep990XFxpiy21iqLlQqfhKTNJn4x9EZw3cM8LXdEl7C6aF0NE8mcoZWlsEVRs2italy_iTEIcxgrUoD-praNmuLmEnpjXcxBGxWx8UrLddD6jZ4dM_nO5hEpxfI&usqp=CAc"
+                        alt=""
+                    >
+
+                    <h3>Gaming Laptop</h3>
+
+                    <p>Giá: 35.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+                <div class="card">
+
+                    <div class="badge">HOT</div>
+
+                    <img
+                        src="https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRAt00jZZUJHGxRufzV7H38lTV4deiGrRMNBXmEK6WzwMyZ0Vi_iXM3fV1i2S9Z-dYOUf1rWs2kvhyPCcQgH_ZSlS8ioWonVNtZR_rJRjdAJWfGyvs_arUjxhPcyytEeA&usqp=CAc"
+                        alt=""
+                    >
+
+                    <h3>Camera Sony</h3>
+
+                    <p>Giá: 20.000.000đ</p>
+
+                    <button>Mua ngay</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <button class="scroll-top">
+        ↑
+    </button>
+
+</body>
+</html>
