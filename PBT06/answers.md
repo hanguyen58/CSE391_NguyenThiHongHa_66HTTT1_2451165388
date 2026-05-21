@@ -6,12 +6,12 @@
 
 ### Câu A1 (10đ) — Grid System
 
-```
+
 | Kích thước | `< 768px`       | `768px - 991px` | `≥ 992px`    |
 | ---------- | --------------- | --------------- | ------------ |
 | Số cột     | 1 cột           | 2 cột           | 4 cột        |
 | Box layout | Các box xếp dọc | 2 box / hàng    | 4 box / hàng |
-```
+
 
 **Câu hỏi thêm:** 
 - col-md-6 nghĩa là:
