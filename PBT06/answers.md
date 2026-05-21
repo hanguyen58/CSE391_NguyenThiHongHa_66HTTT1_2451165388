@@ -153,3 +153,209 @@ nav { display: flex; justify-content: space-between; align-items: center;
 - Performance critical — tải thêm 30KB CSS cho landing page nhỏ là lãng phí
 - Đã có design system riêng của công ty/dự án
  
+---------------------------------
+
+# 🌊 TRACK B — TAILWINDCSS
+## PHẦN A — ĐỌC HIỂU (20 điểm)
+
+### Câu A1 (10đ) — Utility Classes
+
+Giải thích từng class trong đoạn HTML:
+
+```
+Wrapper div:
+- flex               → display: flex
+- items-center       → align-items: center
+- justify-between    → justify-content: space-between
+- p-4                → padding: 1rem (16px) — tất cả 4 phía
+- bg-white           → background-color: #ffffff
+- shadow-md          → box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)
+- rounded-lg         → border-radius: 0.5rem (8px)
+- hover:shadow-xl    → khi hover: box-shadow lớn hơn (xl)
+- transition-shadow  → transition: box-shadow 150ms cubic-bezier(0.4,0,0.2,1)
+- duration-300       → transition-duration: 300ms
+
+img:
+- w-16               → width: 4rem (64px)
+- h-16               → height: 4rem (64px)
+- rounded-full       → border-radius: 9999px (hình tròn)
+- object-cover       → object-fit: cover
+
+div (text container):
+- ml-4               → margin-left: 1rem (16px)
+- flex-1             → flex: 1 1 0% (chiếm hết không gian còn lại)
+
+h3:
+- text-lg            → font-size: 1.125rem (18px); line-height: 1.75rem
+- font-semibold      → font-weight: 600
+- text-gray-800      → color: #1f2937
+- truncate           → overflow: hidden; text-overflow: ellipsis; white-space: nowrap
+
+p:
+- text-sm            → font-size: 0.875rem (14px); line-height: 1.25rem
+- text-gray-500      → color: #6b7280
+
+button:
+- px-4               → padding-left: 1rem; padding-right: 1rem
+- py-2               → padding-top: 0.5rem; padding-bottom: 0.5rem
+- bg-blue-500        → background-color: #3b82f6
+- text-white         → color: #ffffff
+- rounded-md         → border-radius: 0.375rem (6px)
+- hover:bg-blue-600  → khi hover: background-color: #2563eb (xanh đậm hơn)
+- focus:ring-2       → khi focus: outline ring 2px
+- focus:ring-blue-300→ khi focus: ring màu #93c5fd
+```
+
+---
+
+### Câu A2 (10đ) — Responsive & States
+
+#### 1. Prefix responsive: `md:`, `lg:`, `xl:`
+
+Tailwind dùng **mobile-first**. Class không có prefix = áp dụng tất cả kích thước. Prefix chỉ áp dụng từ breakpoint đó **trở lên**.
+
+| Prefix | Breakpoint | Min-width |
+|---|---|---|
+| *(none)* | Tất cả (xs) | 0px |
+| `sm:` | Small | 640px |
+| `md:` | Medium | 768px |
+| `lg:` | Large | 1024px |
+| `xl:` | Extra large | 1280px |
+| `2xl:` | 2x Extra large | 1536px |
+
+**`md:grid-cols-2 lg:grid-cols-4` nghĩa là:**
+- `0 → 767px`: grid mặc định (1 cột nếu dùng `grid-cols-1`)
+- `768px → 1023px`: 2 cột (`grid-cols-2`)
+- `≥ 1024px`: 4 cột (`grid-cols-4`)
+
+---
+
+#### 2. State Modifiers
+
+| Modifier | Khi nào kích hoạt | Ví dụ |
+|---|---|---|
+| `hover:` | Mouse di vào element | `hover:bg-blue-600` |
+| `focus:` | Element được focus (tab/click vào input) | `focus:ring-2` |
+| `active:` | Đang click (mousedown) | `active:scale-95` |
+| `group-hover:` | Khi **parent** có class `group` được hover | `group-hover:text-white` |
+
+**`group-hover:` ví dụ:**
+```html
+<div class="group hover:bg-blue-500">
+  <p class="text-gray-700 group-hover:text-white">Đổi màu khi hover vào parent</p>
+</div>
+```
+
+---
+
+#### 3. Ẩn trên mobile, hiện dạng flex trên tablet trở lên
+
+```html
+<!-- Tương đương d-none d-md-flex của Bootstrap -->
+<div class="hidden md:flex">
+  Nội dung chỉ hiện từ 768px trở lên, dạng flex
+</div>
+```
+
+- `hidden` → `display: none` (tất cả kích thước)
+- `md:flex` → `display: flex` khi ≥ 768px (override `hidden`)
+
+---
+
+## PHẦN C — PHÂN TÍCH
+
+### Câu C1 (10đ) — Tailwind vs CSS thuần
+
+#### So sánh Component: Product Card
+
+**Phiên bản CSS thuần:**
+```html
+<!-- HTML -->
+<div class="card">
+  <img src="..." class="card-img">
+  <div class="card-body">
+    <h3 class="card-title">Tên sản phẩm</h3>
+    <p class="card-price">299.000đ</p>
+    <button class="btn-buy">Mua ngay</button>
+  </div>
+</div>
+
+<!-- CSS riêng — ~25 dòng -->
+```
+
+**Phiên bản Tailwind:**
+```html
+<!-- HTML (không cần CSS riêng) -->
+<div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-white">
+  <img src="..." class="w-full h-48 object-cover">
+  <div class="p-4">
+    <h3 class="text-base font-semibold text-gray-800 mb-1">Tên sản phẩm</h3>
+    <p class="text-red-500 font-bold text-lg mb-3">299.000đ</p>
+    <button class="w-full py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors">
+      Mua ngay
+    </button>
+  </div>
+</div>
+```
+
+#### Bảng so sánh
+
+| Tiêu chí | CSS thuần | Tailwind |
+|---|---|---|
+| **HTML file size** | Nhỏ (class ngắn) | Lớn hơn (nhiều utility classes) |
+| **CSS file size** | ~25 dòng per component | 0 dòng CSS riêng |
+| **Maintainability** | Dễ đọc HTML, nhưng phải tra CSS để hiểu style | Style ngay trong HTML, không cần context-switch |
+| **Reusability** | Dùng lại class tên ngữ nghĩa | Dùng `@apply` để tạo component class tái sử dụng |
+
+**Tái sử dụng với `@apply`:**
+```css
+/* Tạo component class từ Tailwind utilities */
+.btn-primary {
+  @apply px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors;
+}
+.card {
+  @apply rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow bg-white;
+}
+```
+
+---
+
+### Câu C2 (10đ) — Performance
+
+#### 1. Tại sao Tailwind CSS cuối cùng NHỎ HƠN Bootstrap?
+
+**Bootstrap:** Ship toàn bộ ~160KB CSS (minified) — kể cả components bạn **không dùng** (carousel, accordion, tooltip, offcanvas…). Dùng 20 components nhưng tải 100 components.
+
+**Tailwind:** Chỉ generate CSS cho các utility classes **thực sự xuất hiện trong HTML/JS**. Nếu bạn không dùng `rotate-45` hay `skew-y-6`, chúng không xuất hiện trong file CSS output.
+
+Kết quả thực tế: Tailwind production build thường chỉ **5–15KB**, so với Bootstrap ~30KB (gzipped).
+
+---
+
+#### 2. Tailwind JIT (Just-In-Time) / PurgeCSS
+
+**PurgeCSS (cũ — Tailwind v2):** Scan HTML/JS sau khi build, xóa bỏ CSS classes không xuất hiện. Nhược điểm: dev build chứa toàn bộ ~3MB CSS.
+
+**JIT Mode (Tailwind v3+, mặc định):** Thay vì generate trước rồi xóa, JIT **sinh ra CSS on-demand** — chỉ tạo CSS cho class được dùng, ngay lập tức khi bạn gõ. 
+
+JIT loại bỏ:
+- Mọi utility class không được reference trong source files
+- Biến thể (variants) không dùng đến (e.g., `focus-visible:`, `2xl:` nếu không dùng)
+- Arbitrary values không dùng (`w-[347px]`)
+
+Cấu hình `content` trong `tailwind.config.js` để Tailwind biết scan file nào:
+```js
+module.exports = {
+  content: ["./src/**/*.{html,js,jsx,tsx}"],
+}
+```
+
+---
+
+#### 3. Khi KHÔNG nên dùng TailwindCSS
+
+**Tình huống 1 — Dự án không có build step (static HTML đơn giản):**  
+Tailwind JIT yêu cầu build process (Node.js, npm). Nếu bạn chỉ cần một file `index.html` đơn giản không có pipeline, dùng CDN Tailwind sẽ tải toàn bộ ~3MB CSS runtime, rất chậm. Bootstrap CDN (~30KB) hợp lý hơn nhiều.
+
+**Tình huống 2 — Team không đồng thuận / code review khó khăn:**  
+Tailwind HTML có thể trở nên rất dài và khó đọc với class string phức tạp như `"flex items-center justify-between px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl hover:from-blue-600 hover:to-purple-700 active:scale-95 transition-all duration-200"`. Trong team không quen Tailwind hoặc code review chặt, điều này gây tranh cãi và làm chậm quá trình review.

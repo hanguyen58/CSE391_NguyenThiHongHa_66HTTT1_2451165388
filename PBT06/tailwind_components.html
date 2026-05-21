@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Component Library</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>body { font-family: 'Plus Jakarta Sans', sans-serif; }</style>
+</head>
+<body class="bg-slate-100 text-slate-800 flex flex-col min-vh-100">
+
+    <!-- 1. NAVIGATION LAYER (Horizontal Top Navbar) -->
+    <nav class="bg-white border-b border-slate-200 fixed top-0 w-full h-16 z-50 flex justify-between items-center px-6 shadow-sm">
+        <div class="flex items-center gap-3">
+            <span class="bg-indigo-600 text-white w-8 h-8 rounded-lg flex items-center justify-center font-bold shadow-md"><i class="bi bi-layers-half"></i></span>
+            <span class="text-xl font-bold tracking-tight text-slate-900">UI Component Library</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="text-sm font-medium bg-slate-100 text-slate-600 px-3 py-1 rounded-full border">V1.0.0</span>
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-9 h-9 rounded-full object-cover border" alt="Avatar User">
+        </div>
+    </nav>
+
+    <!-- MAIN WRAPPER: Sidebar + Content Body -->
+    <div class="flex pt-16 min-h-screen">
+        
+        <!-- 2. NAVIGATION LAYER (Vertical Left Sidebar) -->
+        <aside class="w-64 bg-white border-r border-slate-200 fixed top-16 bottom-0 left-0 p-4 overflow-y-auto hidden lg:block z-40">
+            <p class="text-xs font-bold text-slate-400 uppercase tracking-widest px-3 mb-3">Danh mục các khối</p>
+            <nav class="space-y-1">
+                <a href="#buttons-section" class="flex items-center gap-3 px-3 py-2.5 rounded-lg bg-indigo-50 text-indigo-600 font-semibold text-sm transition-all">
+                    <i class="bi bi-menu-button-wide-fill"></i> Buttons (Nút bấm)
+                </a>
+                <a href="#cards-section" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-all">
+                    <i class="bi bi-card-heading"></i> Cards (Thẻ nội dung)
+                </a>
+                <a href="#forms-section" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-all">
+                    <i class="bi bi-input-cursor-text"></i> Forms (Trường nhập liệu)
+                </a>
+                <a href="#alerts-section" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-slate-600 hover:bg-slate-50 font-medium text-sm transition-all">
+                    <i class="bi bi-exclamation-triangle"></i> Alerts (Hộp thông báo)
+                </a>
+            </nav>
+        </aside>
+
+        <!-- MAIN LAYOUT CONTENT CENTER -->
+        <main class="flex-1 lg:ml-64 p-6 sm:p-8 space-y-12 max-w-5xl">
+
+            <!-- ======================================================== -->
+            <!-- SECTION 1: BUTTONS -->
+            <!-- ======================================================== -->
+            <section id="buttons-section" class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900"><i class="bi bi-menu-button-wide-fill mr-2 text-indigo-600"></i>Buttons Component</h2>
+                
+                <div class="mt-6 space-y-6">
+                    <!-- Trạng thái Core Types -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">1. Trạng thái & Kiểu thiết kế (Hover/Focus included)</h4>
+                        <div class="flex flex-wrap gap-3 items-center">
+                            <!-- Primary -->
+                            <button class="px-5 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-medium shadow-md shadow-indigo-600/10 focus:ring-4 focus:ring-indigo-200 outline-none transition-all">
+                                Primary Button
+                            </button>
+                            <!-- Secondary -->
+                            <button class="px-5 py-2.5 rounded-lg bg-slate-200 hover:bg-slate-300 text-slate-800 font-medium focus:ring-4 focus:ring-slate-100 outline-none transition-all">
+                                Secondary
+                            </button>
+                            <!-- Outline -->
+                            <button class="px-5 py-2.5 rounded-lg bg-transparent border-2 border-slate-300 hover:border-slate-800 hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-medium focus:ring-4 focus:ring-slate-100 outline-none transition-all">
+                                Outline Button
+                            </button>
+                            <!-- Disabled -->
+                            <button disabled class="px-5 py-2.5 rounded-lg bg-slate-100 text-slate-400 font-medium cursor-not-allowed border border-slate-200">
+                                Disabled Button
+                            </button>
+                            <!-- Loading State -->
+                            <button class="px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-medium flex items-center gap-2 cursor-wait opacity-80 shadow-md">
+                                <svg class="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Đang xử lý...
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Kích cỡ Sizes -->
+                    <div>
+                        <h4 class="text-sm font-semibold text-slate-400 uppercase tracking-wider mb-3">2. Kích thước (Sizes)</h4>
+                        <div class="flex flex-wrap gap-3 items-end">
+                            <button class="px-3 py-1.5 text-xs rounded bg-slate-900 hover:bg-slate-800 text-white font-medium transition-colors">Small (sm)</button>
+                            <button class="px-5 py-2.5 text-sm rounded-lg bg-slate-900 hover:bg-slate-800 text-white font-medium transition-colors">Medium (md)</button>
+                            <button class="px-7 py-3.5 text-base rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold transition-colors">Large (lg)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <!-- ======================================================== -->
+            <!-- SECTION 2: CARDS -->
+            <!-- ======================================================== -->
+            <section id="cards-section" class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900"><i class="bi bi-card-heading mr-2 text-indigo-600"></i>Cards Component</h2>
+                
+                <div class="mt-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+                    
+                    <!-- Card A: Product Card -->
+                    <div class="bg-white rounded-xl shadow-md border border-slate-200/60 overflow-hidden flex flex-col justify-between hover:shadow-xl transition-shadow group">
+                        <div class="relative overflow-hidden aspect-video bg-slate-100">
+                            <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" alt="Tai nghe">
+                        </div>
+                        <div class="p-4 flex-grow flex flex-col justify-between">
+                            <div>
+                                <h4 class="font-bold text-base text-slate-800 line-clamp-1">Tai Nghe Pro Studio H1</h4>
+                                <p class="text-xs text-slate-500 mt-1 line-clamp-2">Bản phối âm studio chuyên nghiệp lọc tạp âm chủ động siêu cấp.</p>
+                            </div>
+                            <div class="mt-4 flex items-center justify-between">
+                                <span class="font-extrabold text-lg text-slate-900">1.990.000đ</span>
+                                <button class="text-xs bg-indigo-600 text-white font-semibold px-3 py-1.5 rounded hover:bg-indigo-500 transition-colors">Mua ngay</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card B: Profile Card -->
+                    <div class="bg-white rounded-xl shadow-md border border-slate-200/60 p-5 text-center flex flex-col items-center hover:shadow-xl transition-shadow">
+                        <div class="relative">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="w-20 h-20 rounded-full object-cover border-4 border-indigo-50 shadow" alt="Profile avatar">
+                            <span class="absolute bottom-0 right-1 bg-green-500 border-2 border-white w-4 h-4 rounded-full"></span>
+                        </div>
+                        <h4 class="font-bold text-lg text-slate-800 mt-3">Phạm Hoàng Linh</h4>
+                        <p class="text-xs font-semibold text-indigo-600 uppercase tracking-wider mt-0.5">Senior UI/UX Designer</p>
+                        <p class="text-xs text-slate-500 mt-3 line-clamp-2">Đam mê kiến tạo giao diện người dùng đơn giản hóa, tinh tế và tối ưu hiệu suất.</p>
+                        <div class="mt-4 flex gap-2 w-full">
+                            <button class="flex-1 text-xs font-semibold bg-slate-900 hover:bg-slate-800 text-white py-2 rounded-lg transition-colors">Theo dõi</button>
+                            <button class="px-3 py-2 text-xs font-semibold bg-slate-100 hover:bg-slate-200 rounded-lg text-slate-700 transition-colors"><i class="bi bi-chat-dots"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Card C: Pricing Card -->
+                    <div class="bg-gradient-to-b from-indigo-900 to-slate-900 rounded-xl shadow-lg text-white p-5 flex flex-col justify-between hover:shadow-2xl transition-shadow relative overflow-hidden">
+                        <div class="absolute -right-6 -top-6 w-20 h-20 bg-indigo-500/20 rounded-full blur-xl"></div>
+                        <div>
+                            <span class="text-xs font-bold text-indigo-300 uppercase tracking-widest bg-indigo-500/20 px-2.5 py-1 rounded-md border border-indigo-500/30">Gói Premium</span>
+                            <div class="mt-4 flex items-baseline gap-1">
+                                <span class="text-3xl font-black">$49</span>
+                                <span class="text-sm text-indigo-200 font-light">/ tháng</span>
+                            </div>
+                            <ul class="mt-5 space-y-2.5 text-xs text-indigo-100">
+                                <li class="flex items-center gap-2"><i class="bi bi-check2 text-indigo-400 font-bold"></i> Toàn bộ UI Components</li>
+                                <li class="flex items-center gap-2"><i class="bi bi-check2 text-indigo-400 font-bold"></i> Cập nhật dự án trọn đời</li>
+                                <li class="flex items-center gap-2"><i class="bi bi-check2 text-indigo-400 font-bold"></i> Hỗ trợ kỹ thuật 24/7</li>
+                            </ul>
+                        </div>
+                        <button class="w-full text-xs font-bold bg-white text-indigo-950 hover:bg-indigo-50 py-2.5 rounded-lg mt-6 text-center transition-colors shadow">Đăng ký ngay</button>
+                    </div>
+
+                </div>
+            </section>
+
+
+            <!-- ======================================================== -->
+            <!-- SECTION 3: FORMS -->
+            <!-- ======================================================== -->
+            <section id="forms-section" class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900"><i class="bi bi-input-cursor-text mr-2 text-indigo-600"></i>Forms Component</h2>
+                
+                <form class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault();">
+                    <!-- Input text -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-sm font-semibold text-slate-700">Họ và tên của bạn <span class="text-rose-500">*</span></label>
+                        <input type="text" placeholder="Nhập tên tiếng Việt..." class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:bg-white focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 transition-all">
+                    </div>
+
+                    <!-- Select field -->
+                    <div class="flex flex-col gap-1.5">
+                        <label class="text-sm font-semibold text-slate-700">Lĩnh vực chuyên môn</label>
+                        <select class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 outline-none focus:bg-white focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 transition-all">
+                            <option value="">-- Chọn ngành học --</option>
+                            <option>Kỹ thuật phần mềm (Software)</option>
+                            <option>Thương mại điện tử (E-Commerce)</option>
+                            <option>Trí tuệ nhân tạo (AI)</option>
+                        </select>
+                    </div>
+
+                    <!-- Textarea full-width -->
+                    <div class="flex flex-col gap-1.5 md:col-span-2">
+                        <label class="text-sm font-semibold text-slate-700">Ghi chú yêu cầu dự án</label>
+                        <textarea rows="3" placeholder="Viết mô tả chi tiết nội dung thiết kế..." class="px-4 py-2.5 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder-slate-400 outline-none focus:bg-white focus:border-indigo-600 focus:ring-4 focus:ring-indigo-100 transition-all"></textarea>
+                    </div>
+
+                    <!-- Checkbox group -->
+                    <div class="md:col-span-2">
+                        <label class="text-sm font-semibold text-slate-700 block mb-2">Điều khoản & Lựa chọn mở rộng</label>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 accent-indigo-600">
+                                <span class="text-sm text-slate-600 group-hover:text-slate-900 transition-colors">Tôi hoàn toàn đồng ý với chính sách lưu trữ cookie hệ thống.</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group select-none">
+                                <input type="checkbox" class="w-4 h-4 rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 accent-indigo-600">
+                                <span class="text-sm text-slate-600 group-hover:text-slate-900 transition-colors">Đăng ký email để nhận thông báo tổng hợp tự động hàng tuần.</span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+
+            <!-- ======================================================== -->
+            <!-- SECTION 4: ALERTS -->
+            <!-- ======================================================== -->
+            <section id="alerts-section" class="bg-white p-6 sm:p-8 rounded-xl shadow-sm border border-slate-200">
+                <h2 class="text-2xl font-bold border-b border-slate-100 pb-3 text-slate-900"><i class="bi bi-exclamation-triangle mr-2 text-indigo-600"></i>Alerts Component</h2>
+                
+                <div class="mt-6 space-y-4">
+                    
+                    <!-- Success Alert -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-check-circle-fill text-xl text-emerald-500"></i>
+                            <span class="text-sm font-medium"><strong>Thành công!</strong> Bản ghi dữ liệu đã được lưu hoàn tất trên máy chủ Cloud.</span>
+                        </div>
+                        <button class="text-emerald-500 hover:text-emerald-800 p-1" onclick="this.parentElement.remove()"><i class="bi bi-x-lg"></i></button>
+                    </div>
+
+                    <!-- Error Alert -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-x-circle-fill text-xl text-rose-500"></i>
+                            <span class="text-sm font-medium"><strong>Lỗi hệ thống!</strong> Kết nối cơ sở dữ liệu thất bại, vui lòng kiểm tra lại chuỗi Connection String.</span>
+                        </div>
+                        <button class="text-rose-500 hover:text-rose-800 p-1" onclick="this.parentElement.remove()"><i class="bi bi-x-lg"></i></button>
+                    </div>
+
+                    <!-- Warning Alert -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-800 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-exclamation-triangle-fill text-xl text-amber-500"></i>
+                            <span class="text-sm font-medium"><strong>Cảnh báo bộ nhớ!</strong> Dung lượng ổ đĩa của bạn còn lại dưới 10% hạn mức cho phép.</span>
+                        </div>
+                        <button class="text-amber-500 hover:text-amber-800 p-1" onclick="this.parentElement.remove()"><i class="bi bi-x-lg"></i></button>
+                    </div>
+
+                    <!-- Info Alert -->
+                    <div class="flex items-center justify-between p-4 rounded-xl bg-sky-50 border border-sky-200 text-sky-800 shadow-sm">
+                        <div class="flex items-center gap-3">
+                            <i class="bi bi-info-circle-fill text-xl text-sky-500"></i>
+                            <span class="text-sm font-medium"><strong>Thông tin cập nhật:</strong> Hệ thống sẽ bảo trì nâng cấp định kỳ vào lúc 0h00 Chủ Nhật tuần này.</span>
+                        </div>
+                        <button class="text-sky-500 hover:text-sky-800 p-1" onclick="this.parentElement.remove()"><i class="bi bi-x-lg"></i></button>
+                    </div>
+
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
