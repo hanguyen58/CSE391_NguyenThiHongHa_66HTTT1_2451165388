@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Công Việc Cá Nhân</title>
+    <link rel="stylesheet" href="Bài2.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ỨNG DỤNG QUẢN LÝ CÔNG VIỆC CÁ NHÂN</h1>
+
+        <!-- Khu vực thông báo nhanh (Toast) -->
+        <div id="toast-notification" class="toast" style="display: none;"></div>
+
+        <!-- Khu vực hiển thị thống kê số lượng -->
+        <div class="statistics-card">
+            <div class="stat-item bg-total">
+                <span class="stat-label">Tổng số công việc:</span>
+                <span id="total-tasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item bg-completed">
+                <span class="stat-label">Đã hoàn thành:</span>
+                <span id="completed-tasks" class="stat-value">0</span>
+            </div>
+            <div class="stat-item bg-pending">
+                <span class="stat-label">Chưa hoàn thành:</span>
+                <span id="pending-tasks" class="stat-value">0</span>
+            </div>
+        </div>
+
+        <!-- Thanh thao tác chính -->
+        <div class="action-bar">
+            <button id="btn-open-modal" class="btn btn-primary">Thêm Công Việc Mới</button>
+        </div>
+
+        <!-- Danh sách hiển thị công việc dạng Card -->
+        <div id="task-list" class="task-grid"></div>
+    </div>
+
+    <!-- Popup Modal Form (Thêm / Sửa công việc) -->
+    <div id="task-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Thêm Công Việc Mới</h2>
+                <span id="btn-close-modal" class="close-btn">&times;</span>
+            </div>
+            <form id="task-form">
+                <input type="hidden" id="task-id">
+                <input type="hidden" id="form-mode" value="create">
+
+                <div class="form-group">
+                    <label for="task-title">Tiêu đề công việc <span class="required">*</span></label>
+                    <input type="text" id="task-title" placeholder="Ví dụ: Làm bài tập DOM">
+                    <small class="error-msg" id="error-title"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-desc">Mô tả ngắn <span class="required">*</span></label>
+                    <textarea id="task-desc" rows="3" placeholder="Nhập tóm tắt nội dung công việc"></textarea>
+                    <small class="error-msg" id="error-desc"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-deadline">Hạn hoàn thành <span class="required">*</span></label>
+                    <input type="date" id="task-deadline">
+                    <small class="error-msg" id="error-deadline"></small>
+                </div>
+
+                <div class="form-group">
+                    <label for="task-priority">Mức ưu tiên</label>
+                    <select id="task-priority">
+                        <option value="Cao">Cao</option>
+                        <option value="Trung bình" selected>Trung bình</option>
+                        <option value="Thấp">Thấp ⏳</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btn-cancel-form" class="btn btn-secondary">Hủy bỏ</button>
+                    <button type="submit" class="btn btn-success">Lưu Lại</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="Bài2.js"></script>
+</body>
+</html>
