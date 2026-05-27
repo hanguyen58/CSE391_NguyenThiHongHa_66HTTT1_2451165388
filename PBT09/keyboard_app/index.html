@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Navigation & Accessibility</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>Keyboard Shortcuts Gallery</h1>
+            <p class="instruction">
+                ⌨️ Phím tắt: <kbd>Ctrl</kbd> + <kbd>K</kbd> để mở Command Palette | 
+                Phím <kbd>1-4</kbd> để nhảy nhanh ảnh.
+            </p>
+        </header>
+
+        <main class="gallery-grid">
+            <div class="gallery-item" tabindex="0" aria-label="Hình ảnh phong cảnh 1: Núi rừng">
+                <img src="https://picsum.photos/id/10/600/400" alt="Núi rừng hùng vĩ" class="gallery-img">
+                <span class="badge">1</span>
+            </div>
+            <div class="gallery-item" tabindex="0" aria-label="Hình ảnh phong cảnh 2: Bờ biển">
+                <img src="https://picsum.photos/id/11/600/400" alt="Bờ biển hoàng hôn" class="gallery-img">
+                <span class="badge">2</span>
+            </div>
+            <div class="gallery-item" tabindex="0" aria-label="Hình ảnh phong cảnh 3: Thành phố">
+                <img src="https://picsum.photos/id/12/600/400" alt="Thành phố lên đèn" class="gallery-img">
+                <span class="badge">3</span>
+            </div>
+            <div class="gallery-item" tabindex="0" aria-label="Hình ảnh phong cảnh 4: Rừng cây">
+                <img src="https://picsum.photos/id/13/600/400" alt="Con đường xuyên rừng" class="gallery-img">
+                <span class="badge">4</span>
+            </div>
+        </main>
+    </div>
+
+    <div id="galleryModal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="Xem ảnh chi tiết">
+        <div class="modal-content">
+            <span class="close-modal" aria-label="Đóng ảnh">&times;</span>
+            <img id="modalImg" src="" alt="Ảnh phóng to" tabindex="0">
+            <div class="slideshow-status">Bấm <kbd>Space</kbd> để chạy/dừng Slideshow tự động</div>
+        </div>
+    </div>
+
+    <div id="commandPalette" class="palette-overlay" role="dialog" aria-modal="true" aria-label="Bảng lệnh nhanh">
+        <div class="palette-box">
+            <input type="text" id="paletteInput" placeholder="Nhập lệnh cần tìm... (Ví dụ: Dark, Light, Open, Close)" aria-label="Tìm kiếm lệnh">
+            <ul id="commandList" class="command-list">
+                <li class="command-item" data-action="toggle-dark">🌓 Bật/Tắt Chế độ Dark Mode</li>
+                <li class="command-item" data-action="open-first">🖼️ Mở ảnh đầu tiên trong bộ sưu tập</li>
+                <li class="command-item" data-action="alert-info">ℹ️ Hiển thị thông tin phiên bản</li>
+                <li class="command-item" data-action="clear-console">🧹 Xóa sạch bảng điều khiển log</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Dark mode theme */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f5f5f5;
+}
+
+.app-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+h1 { margin-bottom: 10px; }
+
+.instruction {
+    font-size: 14px;
+    color: #666;
+}
+body.dark-mode .instruction { color: #aaa; }
+
+kbd {
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 12px;
+    color: #333;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.2);
+}
+
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    border: 3px solid transparent;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Hỗ trợ hiển thị Focus Ring rõ ràng khi nhấn Tab */
+.gallery-item:focus {
+    outline: none;
+    border-color: #3498db;
+    transform: scale(1.02);
+}
+
+.badge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+/* Lightbox Modal */
+.modal-overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal-content {
+    position: relative;
+    max-width: 80%;
+    max-height: 80%;
+    text-align: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 4px;
+    border: 2px solid #fff;
+}
+.modal-content img:focus {
+    outline: 3px solid #3498db;
+}
+
+.close-modal {
+    position: absolute;
+    top: -40px; right: 0;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.slideshow-status {
+    margin-top: 15px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Command Palette */
+.palette-overlay {
+    position: fixed;
+    top:0; left:0; right:0; bottom:0;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    justify-content: center;
+    padding-top: 10vh;
+    z-index: 2000;
+}
+
+.palette-overlay.active { display: flex; }
+
+.palette-box {
+    background: white;
+    width: 100%;
+    max-width: 550px;
+    height: max-content;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+body.dark-mode .palette-box {
+    background: #2c2c2c;
+    border: 1px solid #444;
+}
+
+#paletteInput {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    outline: none;
+}
+body.dark-mode #paletteInput {
+    background: #2c2c2c;
+    color: white;
+    border-bottom: 1px solid #444;
+}
+
+.command-list { list-style: none; }
+
+.command-item {
+    padding: 12px 16px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.command-item:hover, .command-item.selected {
+    background: #f0f0f0;
+}
+body.dark-mode .command-item:hover, body.dark-mode .command-item.selected {
+    background: #3a3a3a;
+}
