@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game: Đoán Số May Mắn</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        h1 { color: #007bff; }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover { background-color: #218838; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>🎮 MINI GAME: ĐOÁN SỐ</h1>
+        <p>Máy tính đã bí mật chọn một số ngẫu nhiên từ <b>1 đến 100</b>.</p>
+        <p>Bạn có tối đa <b>7 lượt đoán</b> để tìm ra con số này!</p>
+        <br>
+        <button onclick="playGame()">Bắt đầu chơi ngay</button>
+    </div>
+
+    <script src="guess.js"></script>
+</body>
+</html>
