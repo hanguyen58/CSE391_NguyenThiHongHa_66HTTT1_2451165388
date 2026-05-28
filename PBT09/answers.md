@@ -2,7 +2,7 @@
 ## Câu A1 (5đ) — DOM Tree
 **1. Sơ đồ cây DOM Tree**
 
-
+```
                 document
                     │
                  <html>
@@ -16,7 +16,8 @@
      <h1>    <nav>   <form>    <ul id="todoList">
       │      / | \    #todoForm     /         \
    "Todo"   <a><a><a>   /   \     <li>        <li>
-           "All" "Active" <input> <button> "Learn HTML" "Learn CSS"
+"All" "Active" <input> <button> "Learn HTML" "Learn CSS"
+```
 
 **2. Viết querySelector cho mỗi yêu cầu**
 Chọn thẻ `<h1>`: `document.querySelector('h1')` hoặc `document.querySelector('#app header h1')`
